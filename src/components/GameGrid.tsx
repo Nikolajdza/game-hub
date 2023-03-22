@@ -21,6 +21,7 @@ const GameGrid: FC<Props> = ({ gameQuery }) => {
         columns={{ sm: 1, md: 2, lg: 3, xl: 5 }}
         spacing={3}
         padding={10}
+        paddingLeft={0}
       >
         {isLoading &&
           skeletons.map((skeleton) => (

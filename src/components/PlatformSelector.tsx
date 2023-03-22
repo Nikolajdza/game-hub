@@ -1,5 +1,12 @@
 import { FC } from "react";
-import { Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuList,
+} from "@chakra-ui/react";
 import { BsChevronDown } from "react-icons/all";
 import usePlatforms from "../hooks/usePlatforms";
 import { Platform } from "../hooks/useGames";
@@ -19,21 +26,23 @@ const PlatformSelector: FC<Props> = ({
     <>
       {error && <></>}
       {!error && (
-        <Menu>
-          <MenuButton as={Button} rightIcon={<BsChevronDown />}>
-            {selectedPlatform?.name ?? "Platform"}
-          </MenuButton>
-          <MenuList>
-            {data.map((platform) => (
-              <MenuItem
-                key={platform.id}
-                onClick={() => onSelectPlatform(platform)}
-              >
-                {platform.name}
-              </MenuItem>
-            ))}
-          </MenuList>
-        </Menu>
+        <Box>
+          <Menu>
+            <MenuButton as={Button} rightIcon={<BsChevronDown />}>
+              {selectedPlatform?.name ?? "Platform"}
+            </MenuButton>
+            <MenuList>
+              {data.map((platform) => (
+                <MenuItem
+                  key={platform.id}
+                  onClick={() => onSelectPlatform(platform)}
+                >
+                  {platform.name}
+                </MenuItem>
+              ))}
+            </MenuList>
+          </Menu>
+        </Box>
       )}
     </>
   );
