@@ -1,6 +1,7 @@
 import { FC } from "react";
 import {
   Button,
+  Heading,
   HStack,
   Image,
   List,
@@ -21,36 +22,46 @@ const GenreList: FC<Props> = ({ onSelectGenre, selectedGenre }) => {
   const skeletons = Array.from({ length: 18 }).map((_, i) => i);
 
   return (
-    <List>
-      {isLoading && (
-        <Stack>
-          {skeletons.map((skeleton) => (
-            <Skeleton key={skeleton} paddingY={2} height="30px" />
+    <>
+      <Heading fontSize="2xl" marginBottom={3}>
+        Genres
+      </Heading>
+      <List>
+        {isLoading && (
+          <Stack>
+            {skeletons.map((skeleton) => (
+              <Skeleton key={skeleton} paddingY={2} height="30px" />
+            ))}
+          </Stack>
+        )}
+        {!error &&
+          data.map((genre) => (
+            <ListItem key={genre.id} paddingY="5px">
+              <HStack>
+                <Image
+                  boxSize="32px"
+                  borderRadius={8}
+                  objectFit="cover"
+                  src={getCroppedImageUrl(genre.image_background)}
+                />
+                <Button
+                  whiteSpace="normal"
+                  textAlign="left"
+                  onClick={() => onSelectGenre(genre)}
+                  variant="link"
+                  fontSize="lg"
+                  fontWeight={
+                    selectedGenre?.id === genre.id ? "bold" : "normal"
+                  }
+                >
+                  {genre.name}
+                </Button>
+              </HStack>
+            </ListItem>
           ))}
-        </Stack>
-      )}
-      {!error &&
-        data.map((genre) => (
-          <ListItem key={genre.id} paddingY="5px">
-            <HStack>
-              <Image
-                boxSize="32px"
-                borderRadius={8}
-                src={getCroppedImageUrl(genre.image_background)}
-              />
-              <Button
-                onClick={() => onSelectGenre(genre)}
-                variant="link"
-                fontSize="lg"
-                fontWeight={selectedGenre?.id === genre.id ? "bold" : "normal"}
-              >
-                {genre.name}
-              </Button>
-            </HStack>
-          </ListItem>
-        ))}
-      {error && <></>}
-    </List>
+        {error && <></>}
+      </List>
+    </>
   );
 };
 
