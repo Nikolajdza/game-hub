@@ -10,7 +10,7 @@ import {
   FaXbox,
 } from "react-icons/fa";
 import { MdPhoneIphone } from "react-icons/md";
-import { SiNintendo } from "react-icons/si";
+import { SiAtari, SiNintendo, SiSega } from "react-icons/si";
 import { BsGlobe } from "react-icons/bs";
 import { IconType } from "react-icons";
 
@@ -29,6 +29,8 @@ const PlatofmIconList: FC<Props> = ({ platforms }) => {
     ios: MdPhoneIphone,
     android: FaAndroid,
     web: BsGlobe,
+    sega: SiSega,
+    atari: SiAtari,
   };
 
   return (
