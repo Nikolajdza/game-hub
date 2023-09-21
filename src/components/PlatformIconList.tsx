@@ -1,45 +1,45 @@
-import { FC } from "react";
-import { Platform } from "../hooks/useGames";
-import { HStack, Icon } from "@chakra-ui/react";
+import { FC } from 'react';
+import { Platform } from '../hooks/usePlatforms';
+import { HStack, Icon } from '@chakra-ui/react';
 import {
-  FaAndroid,
-  FaApple,
-  FaLinux,
-  FaPlaystation,
-  FaWindows,
-  FaXbox,
-} from "react-icons/fa";
-import { MdPhoneIphone } from "react-icons/md";
-import { SiAtari, SiNintendo, SiSega } from "react-icons/si";
-import { BsGlobe } from "react-icons/bs";
-import { IconType } from "react-icons";
+    FaAndroid,
+    FaApple,
+    FaLinux,
+    FaPlaystation,
+    FaWindows,
+    FaXbox,
+} from 'react-icons/fa';
+import { MdPhoneIphone } from 'react-icons/md';
+import { SiAtari, SiNintendo, SiSega } from 'react-icons/si';
+import { BsGlobe } from 'react-icons/bs';
+import { IconType } from 'react-icons';
 
 interface Props {
-  platforms: Platform[];
+    platforms: Platform[];
 }
 
-const PlatofmIconList: FC<Props> = ({ platforms }) => {
-  const iconMap: { [key: string]: IconType } = {
-    pc: FaWindows,
-    playstation: FaPlaystation,
-    xbox: FaXbox,
-    nintendo: SiNintendo,
-    mac: FaApple,
-    linux: FaLinux,
-    ios: MdPhoneIphone,
-    android: FaAndroid,
-    web: BsGlobe,
-    sega: SiSega,
-    atari: SiAtari,
-  };
+const PlatofmIconList: FC<Props> = ({platforms}) => {
+    const iconMap: { [key: string]: IconType } = {
+        pc: FaWindows,
+        playstation: FaPlaystation,
+        xbox: FaXbox,
+        nintendo: SiNintendo,
+        mac: FaApple,
+        linux: FaLinux,
+        ios: MdPhoneIphone,
+        android: FaAndroid,
+        web: BsGlobe,
+        sega: SiSega,
+        atari: SiAtari,
+    };
 
-  return (
-    <HStack marginY={1}>
-      {platforms.map((platform) => (
-        <Icon key={platform.id} as={iconMap[platform.slug]} color="gray.500" />
-      ))}
-    </HStack>
-  );
+    return (
+        <HStack marginY={1}>
+            {platforms.map((platform) => (
+                <Icon key={platform.id} as={iconMap[platform.slug]} color="gray.500"/>
+            ))}
+        </HStack>
+    );
 };
 
 export default PlatofmIconList;
