@@ -6,7 +6,7 @@ import PlatformSelector from '../components/PlatformSelector';
 import SortSelector from '../components/SortSelector';
 import GameGrid from '../components/GameGrid';
 
-function HomePage() {
+const HomePage = () => {
     return (
         <Grid
             templateAreas={{
@@ -33,6 +33,6 @@ function HomePage() {
             </GridItem>
         </Grid>
     );
-}
+};
 
 export default HomePage;

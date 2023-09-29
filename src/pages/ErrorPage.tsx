@@ -3,7 +3,7 @@ import { Box, Heading, Text } from '@chakra-ui/react';
 import { isRouteErrorResponse, useRouteError } from 'react-router-dom';
 import NavBar from '../components/NavBar';
 
-function ErrorPage() {
+const ErrorPage = () => {
     const error = useRouteError();
 
     return (
@@ -15,6 +15,6 @@ function ErrorPage() {
             </Box>
         </>
     );
-}
+};
 
 export default ErrorPage;
